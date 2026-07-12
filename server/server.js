@@ -1,4 +1,5 @@
 ﻿const express = require("express");
+require("express-async-errors");
 const cors = require("cors");
 const path = require("path");
 const fs = require("fs");
@@ -249,6 +250,12 @@ app.get("*", (req, res) => {
   } else {
     res.status(404).json({ error: "Not found" });
   }
+});
+
+// ─── Global error handler ────────────────────────────────
+app.use((err, req, res, next) => {
+  console.error("Unhandled error:", err);
+  res.status(500).json({ error: "服务器内部错误" });
 });
 
 app.listen(PORT, () => {
