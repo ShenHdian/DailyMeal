@@ -1,0 +1,14 @@
+{
+  "name": "dailymeal",
+  "version": "1.0.0",
+  "description": "饮食黑白名单 Dailymeal - 健康饮食管理工具",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"cd server && node server.js\" \"cd client && npm run dev\"",
+    "build": "cd client && npm run build",
+    "start": "cd server && node server.js"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
